@@ -25,6 +25,18 @@ app.post("/make", (req, res) => {
   res.send(newArr);
 });
 
+app.post("/valIndex", (req, res) => {
+  const arr = [];
+  const newArr = searchArrValIndex(req.body.input_array, arr);
+  res.send(newArr);
+});
+
+app.post("/index", (req, res) => {
+  const arr = [];
+  const newArr = searchIndexArr(req.body.input_array, arr);
+  res.send(newArr);
+});
+
 app.get("/query", (req, res) => {
   db.query(
     `SELECT * FROM area
