@@ -1,9 +1,14 @@
 let arr = [];
-const makeArr = (numbers, length) => {
-  const result = [];
+
+const parseArr = (numbers) => {
   const data = numbers.split(",");
 
   for (var i = 0; i < data.length; i++) data[i] = +data[i];
+};
+
+const makeArr = (numbers, length) => {
+  const result = [];
+  const data = parseArr(numbers);
 
   let curr,
     total = length - data.length;
@@ -17,18 +22,14 @@ const makeArr = (numbers, length) => {
 };
 
 const searchArrValIndex = (numbers, arr) => {
-  const data = numbers.split(",");
-
-  for (var i = 0; i < data.length; i++) data[i] = +data[i];
+  const data = parseArr(numbers);
 
   const dataArr = arr.filter((val) => val === data);
   const indexArr = arr.findIndex((val) => val === data);
 };
 
 const searchIndexArr = (numbers, arr) => {
-  const data = numbers.split(",");
-
-  for (var i = 0; i < data.length; i++) data[i] = +data[i];
+  const data = parseArr(numbers);
 
   const indexArr = arr.findIndex((val) => val === data);
 };
